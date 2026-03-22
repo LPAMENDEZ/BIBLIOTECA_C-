@@ -544,3 +544,68 @@ static void ReportSummary()
     Console.WriteLine("→ Total libros, usuarios, préstamos activos y préstamos vencidos.");
     Pausa();
 }
+
+// MENÚ GUARDAR / CARGAR
+
+static void ShowPersistenceMenu()
+{
+    int opcion = 0;
+    while (opcion != 4)
+    {
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════╗");
+        Console.WriteLine("║     GUARDAR / CARGAR         ║");
+        Console.WriteLine("╠══════════════════════════════╣");
+        Console.WriteLine("║  1. Guardar datos            ║");
+        Console.WriteLine("║  2. Cargar datos             ║");
+        Console.WriteLine("║  3. Reiniciar datos          ║");
+        Console.WriteLine("║  4. Volver                   ║");
+        Console.WriteLine("╚══════════════════════════════╝");
+        opcion = LeerOpcion("Seleccione una opción: ", 1, 4);
+
+        switch (opcion)
+        {
+            case 1: SaveData();          break;
+            case 2: LoadData();          break;
+            case 3: ConfirmResetData();  break;
+            case 4: return;
+        }
+    }
+}
+
+static void SaveData()
+{
+    Console.Clear();
+    Console.WriteLine("GUARDAR DATOS");
+    Console.WriteLine("→ Aquí se guardarían todos los datos del sistema en un archivo.");
+    Pausa();
+}
+
+static void LoadData()
+{
+    Console.Clear();
+    Console.WriteLine("CARGAR DATOS");
+    Console.WriteLine("→ Aquí se cargarían los datos previamente guardados desde un archivo.");
+    Pausa();
+}
+
+static void ResetData()
+{
+    Console.Clear();
+    Console.WriteLine("REINICIAR DATOS");
+    Console.WriteLine("→ Todos los datos del sistema han sido reiniciados.");
+    Pausa();
+}
+
+static void ConfirmResetData()
+{
+    Console.Clear();
+    Console.WriteLine("¿Está seguro que desea reiniciar todos los datos? (S/N)");
+    Console.Write("→ ");
+    string respuesta = (Console.ReadLine() ?? "").Trim().ToUpper();
+    if (respuesta == "S")
+        ResetData();
+    else
+        Console.WriteLine(" Operación cancelada.");
+    Pausa();
+}
