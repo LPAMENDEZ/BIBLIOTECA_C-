@@ -204,3 +204,117 @@ static void DeleteBook()
     Console.WriteLine("→ Validar: no permitir eliminar si el libro está prestado actualmente.");
     Pausa();
 }
+
+// MENÚ USUARIOS
+
+static void ShowUsersMenu()
+{
+    int opcion = 0;
+    while (opcion != 6)
+    {
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════╗");
+        Console.WriteLine("║         USUARIOS             ║");
+        Console.WriteLine("╠══════════════════════════════╣");
+        Console.WriteLine("║  1. Registrar usuario        ║");
+        Console.WriteLine("║  2. Listar usuarios          ║");
+        Console.WriteLine("║  3. Ver detalle              ║");
+        Console.WriteLine("║  4. Actualizar usuario       ║");
+        Console.WriteLine("║  5. Eliminar usuario         ║");
+        Console.WriteLine("║  6. Volver                   ║");
+        Console.WriteLine("╚══════════════════════════════╝");
+        opcion = LeerOpcion("Seleccione una opción: ", 1, 6);
+
+        switch (opcion)
+        {
+            case 1: RegisterUser();   break;
+            case 2: ListUsers();      break;
+            case 3: ViewUserDetail(); break;
+            case 4: UpdateUserMenu(); break;
+            case 5: DeleteUser();     break;
+            case 6: return;
+        }
+    }
+}
+
+static void RegisterUser()
+{
+    Console.Clear();
+    Console.WriteLine("REGISTRAR USUARIO");
+    Console.WriteLine("→ Aquí se registraría un nuevo usuario (nombre, documento, contacto).");
+    Pausa();
+}
+
+static void ListUsers()
+{
+    Console.Clear();
+    Console.WriteLine("LISTAR USUARIOS");
+    Console.WriteLine("→ Aquí se mostrarían todos los usuarios registrados en el sistema.");
+    Pausa();
+}
+
+static void ViewUserDetail()
+{
+    Console.Clear();
+    Console.WriteLine("VER DETALLE DE USUARIO");
+    Console.WriteLine("→ Aquí se buscaría un usuario por ID/documento y se mostraría su detalle.");
+    Pausa();
+}
+
+static void UpdateUserMenu()
+{
+    int opcion = 0;
+    while (opcion != 4)
+    {
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════╗");
+        Console.WriteLine("║     ACTUALIZAR USUARIO       ║");
+        Console.WriteLine("╠══════════════════════════════╣");
+        Console.WriteLine("║  1. Editar nombre            ║");
+        Console.WriteLine("║  2. Editar contacto          ║");
+        Console.WriteLine("║  3. Activar / desactivar     ║");
+        Console.WriteLine("║  4. Volver                   ║");
+        Console.WriteLine("╚══════════════════════════════╝");
+        opcion = LeerOpcion("Seleccione una opción: ", 1, 4);
+
+        switch (opcion)
+        {
+            case 1: EditUserName();           break;
+            case 2: EditUserContact();        break;
+            case 3: ToggleUserActiveStatus(); break;
+            case 4: return;
+        }
+    }
+}
+
+static void EditUserName()
+{
+    Console.Clear();
+    Console.WriteLine("EDITAR NOMBRE");
+    Console.WriteLine("→ Aquí se actualizaría el nombre del usuario seleccionado.");
+    Pausa();
+}
+
+static void EditUserContact()
+{
+    Console.Clear();
+    Console.WriteLine("EDITAR CONTACTO");
+    Console.WriteLine("→ Aquí se actualizaría el contacto del usuario seleccionado.");
+    Pausa();
+}
+
+static void ToggleUserActiveStatus()
+{
+    Console.Clear();
+    Console.WriteLine("ACTIVAR / DESACTIVAR USUARIO");
+    Console.WriteLine("→ Aquí se cambiaría el estado activo/inactivo del usuario seleccionado.");
+    Pausa();
+}
+
+static void DeleteUser()
+{
+    Console.Clear();
+    Console.WriteLine("ELIMINAR USUARIO");
+    Console.WriteLine("→ Validar: no permitir eliminar si el usuario tiene préstamos activos.");
+    Pausa();
+}
