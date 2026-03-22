@@ -318,3 +318,124 @@ static void DeleteUser()
     Console.WriteLine("→ Validar: no permitir eliminar si el usuario tiene préstamos activos.");
     Pausa();
 }
+
+
+// MENÚ PRÉSTAMOS
+
+static void ShowLoansMenu()
+{
+    int opcion = 0;
+    while (opcion != 6)
+    {
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════╗");
+        Console.WriteLine("║        PRÉSTAMOS             ║");
+        Console.WriteLine("╠══════════════════════════════╣");
+        Console.WriteLine("║  1. Crear préstamo           ║");
+        Console.WriteLine("║  2. Listar préstamos         ║");
+        Console.WriteLine("║  3. Ver detalle              ║");
+        Console.WriteLine("║  4. Registrar devolución     ║");
+        Console.WriteLine("║  5. Eliminar préstamo        ║");
+        Console.WriteLine("║  6. Volver                   ║");
+        Console.WriteLine("╚══════════════════════════════╝");
+        opcion = LeerOpcion("Seleccione una opción: ", 1, 6);
+
+        switch (opcion)
+        {
+            case 1: CreateLoan();      break;
+            case 2: ListLoansMenu();   break;
+            case 3: ViewLoanDetail();  break;
+            case 4: RegisterReturn();  break;
+            case 5: DeleteLoan();      break;
+            case 6: return;
+        }
+    }
+}
+
+static void CreateLoan()
+{
+    Console.Clear();
+    Console.WriteLine("CREAR PRÉSTAMO");
+    Console.WriteLine("→ Validaciones que se aplicarían:");
+    Console.WriteLine("   • El libro debe existir y estar disponible.");
+    Console.WriteLine("   • El usuario debe existir y estar activo.");
+    Console.WriteLine("   • El usuario no debe superar el límite de préstamos.");
+    Console.WriteLine("   • Se registraría fecha de préstamo y fecha de devolución estimada.");
+    Pausa();
+}
+
+static void ListLoansMenu()
+{
+    int opcion = 0;
+    while (opcion != 4)
+    {
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════╗");
+        Console.WriteLine("║      LISTAR PRÉSTAMOS        ║");
+        Console.WriteLine("╠══════════════════════════════╣");
+        Console.WriteLine("║  1. Todos                    ║");
+        Console.WriteLine("║  2. Activos                  ║");
+        Console.WriteLine("║  3. Cerrados                 ║");
+        Console.WriteLine("║  4. Volver                   ║");
+        Console.WriteLine("╚══════════════════════════════╝");
+        opcion = LeerOpcion("Seleccione una opción: ", 1, 4);
+
+        switch (opcion)
+        {
+            case 1: ListLoansAll();    break;
+            case 2: ListLoansActive(); break;
+            case 3: ListLoansClosed(); break;
+            case 4: return;
+        }
+    }
+}
+
+static void ListLoansAll()
+{
+    Console.Clear();
+    Console.WriteLine(" TODOS LOS PRÉSTAMOS");
+    Console.WriteLine("→ Aquí se mostrarían todos los préstamos registrados.");
+    Pausa();
+}
+
+static void ListLoansActive()
+{
+    Console.Clear();
+    Console.WriteLine("PRÉSTAMOS ACTIVOS");
+    Console.WriteLine("→ Aquí se mostrarían los préstamos que aún no han sido devueltos.");
+    Pausa();
+}
+
+static void ListLoansClosed()
+{
+    Console.Clear();
+    Console.WriteLine("PRÉSTAMOS CERRADOS");
+    Console.WriteLine("→ Aquí se mostrarían los préstamos ya devueltos.");
+    Pausa();
+}
+
+static void ViewLoanDetail()
+{
+    Console.Clear();
+    Console.WriteLine("VER DETALLE DE PRÉSTAMO");
+    Console.WriteLine("→ Aquí se buscaría un préstamo por ID y se mostraría su detalle completo.");
+    Pausa();
+}
+
+static void RegisterReturn()
+{
+    Console.Clear();
+    Console.WriteLine("REGISTRAR DEVOLUCIÓN");
+    Console.WriteLine("→ Aquí se marcaría el préstamo como devuelto y el libro quedaría disponible.");
+    Pausa();
+}
+
+static void DeleteLoan()
+{
+    Console.Clear();
+    Console.WriteLine("ELIMINAR PRÉSTAMO");
+    Console.WriteLine("→ Reglas sugeridas:");
+    Console.WriteLine("   • Solo se permitiría eliminar préstamos cerrados.");
+    Console.WriteLine("   • No se puede eliminar un préstamo activo.");
+    Pausa();
+}
