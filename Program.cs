@@ -439,3 +439,108 @@ static void DeleteLoan()
     Console.WriteLine("   • No se puede eliminar un préstamo activo.");
     Pausa();
 }
+
+
+// MENÚ BÚSQUEDAS Y REPORTES
+
+static void ShowSearchReportsMenu()
+{
+    int opcion = 0;
+    while (opcion != 4)
+    {
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════╗");
+        Console.WriteLine("║   BÚSQUEDAS Y REPORTES       ║");
+        Console.WriteLine("╠══════════════════════════════╣");
+        Console.WriteLine("║  1. Buscar libro             ║");
+        Console.WriteLine("║  2. Buscar usuario           ║");
+        Console.WriteLine("║  3. Reportes                 ║");
+        Console.WriteLine("║  4. Volver                   ║");
+        Console.WriteLine("╚══════════════════════════════╝");
+        opcion = LeerOpcion("Seleccione una opción: ", 1, 4);
+
+        switch (opcion)
+        {
+            case 1: SearchBook();    break;
+            case 2: SearchUser();    break;
+            case 3: ReportsMenu();   break;
+            case 4: return;
+        }
+    }
+}
+
+static void SearchBook()
+{
+    Console.Clear();
+    Console.WriteLine("BUSCAR LIBRO");
+    Console.WriteLine("→ Aquí se buscaría un libro por título, autor, ID o categoría.");
+    Pausa();
+}
+
+static void SearchUser()
+{
+    Console.Clear();
+    Console.WriteLine("BUSCAR USUARIO");
+    Console.WriteLine("→ Aquí se buscaría un usuario por nombre o ID/documento.");
+    Pausa();
+}
+
+static void ReportsMenu()
+{
+    int opcion = 0;
+    while (opcion != 5)
+    {
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════╗");
+        Console.WriteLine("║          REPORTES            ║");
+        Console.WriteLine("╠══════════════════════════════╣");
+        Console.WriteLine("║  1. Reporte por usuario      ║");
+        Console.WriteLine("║  2. Reporte por libro        ║");
+        Console.WriteLine("║  3. Préstamos vencidos       ║");
+        Console.WriteLine("║  4. Resumen general          ║");
+        Console.WriteLine("║  5. Volver                   ║");
+        Console.WriteLine("╚══════════════════════════════╝");
+        opcion = LeerOpcion("Seleccione una opción: ", 1, 5);
+
+        switch (opcion)
+        {
+            case 1: ReportByUser();  break;
+            case 2: ReportByBook();  break;
+            case 3: ReportOverdue(); break;
+            case 4: ReportSummary(); break;
+            case 5: return;
+        }
+    }
+}
+
+static void ReportByUser()
+{
+    Console.Clear();
+    Console.WriteLine("REPORTE POR USUARIO");
+    Console.WriteLine("→ Aquí se mostrarían todos los préstamos asociados a un usuario.");
+    Pausa();
+}
+
+static void ReportByBook()
+{
+    Console.Clear();
+    Console.WriteLine("REPORTE POR LIBRO");
+    Console.WriteLine("→ Aquí se mostraría el historial de préstamos de un libro específico.");
+    Pausa();
+}
+
+static void ReportOverdue()
+{
+    Console.Clear();
+    Console.WriteLine("PRÉSTAMOS VENCIDOS");
+    Console.WriteLine("→ Aquí se mostrarían los préstamos cuya fecha de devolución ya pasó.");
+    Pausa();
+}
+
+static void ReportSummary()
+{
+    Console.Clear();
+    Console.WriteLine("RESUMEN GENERAL");
+    Console.WriteLine("→ Total libros, usuarios, préstamos activos y préstamos vencidos.");
+    Pausa();
+}
