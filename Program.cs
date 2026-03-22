@@ -609,3 +609,35 @@ static void ConfirmResetData()
         Console.WriteLine(" Operación cancelada.");
     Pausa();
 }
+
+// CONFIRMAR SALIDA
+
+static void ConfirmExitAndSave()
+{
+    Console.Clear();
+    Console.WriteLine("╔══════════════════════════════╗");
+    Console.WriteLine("║         SALIR                ║");
+    Console.WriteLine("╚══════════════════════════════╝");
+    Console.WriteLine("¿Desea guardar antes de salir? (S/N)");
+    Console.Write("→ ");
+    string respuesta = (Console.ReadLine() ?? "").Trim().ToUpper();
+    if (respuesta == "S")
+    {
+        SaveData();
+        Console.WriteLine("Datos guardados. ¡Hasta luego!");
+    }
+    else
+    {
+        Console.WriteLine("¡Hasta luego!");
+    }
+    Pausa();
+    Environment.Exit(0);
+}
+
+// pausar pantalla
+
+static void Pausa()
+{
+    Console.WriteLine("\nPresione Enter para continuar...");
+    Console.ReadLine();
+}
