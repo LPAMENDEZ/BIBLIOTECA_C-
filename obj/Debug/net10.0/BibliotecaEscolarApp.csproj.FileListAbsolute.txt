@@ -3,3 +3,13 @@ C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.Assem
 C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.AssemblyInfo.cs
 C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.csproj.CoreCompileInputs.cache
 C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.sourcelink.json
+C:\Users\panes\BibliotecaEscolarApp\bin\Debug\net10.0\BibliotecaEscolarApp.exe
+C:\Users\panes\BibliotecaEscolarApp\bin\Debug\net10.0\BibliotecaEscolarApp.deps.json
+C:\Users\panes\BibliotecaEscolarApp\bin\Debug\net10.0\BibliotecaEscolarApp.runtimeconfig.json
+C:\Users\panes\BibliotecaEscolarApp\bin\Debug\net10.0\BibliotecaEscolarApp.dll
+C:\Users\panes\BibliotecaEscolarApp\bin\Debug\net10.0\BibliotecaEscolarApp.pdb
+C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.dll
+C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\refint\BibliotecaEscolarApp.dll
+C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.pdb
+C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.genruntimeconfig.cache
+C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\ref\BibliotecaEscolarApp.dll
