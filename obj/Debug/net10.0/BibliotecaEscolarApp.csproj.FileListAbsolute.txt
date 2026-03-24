@@ -1,5 +1,0 @@
-C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.AssemblyInfoInputs.cache
-C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.AssemblyInfo.cs
-C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.csproj.CoreCompileInputs.cache
-C:\Users\panes\BibliotecaEscolarApp\obj\Debug\net10.0\BibliotecaEscolarApp.sourcelink.json
