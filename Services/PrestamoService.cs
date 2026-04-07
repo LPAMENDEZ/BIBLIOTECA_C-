@@ -50,5 +50,34 @@ namespace BibliotecaEscolarApp.Services
 
         public List<Prestamo> OrdenarPorFechaPrestamo() =>
             prestamos.OrderBy(p => p.FechaPrestamo).ToList();
+
+            // ── KPIs ──────────────────────────────────────────
+        public int TotalPrestamos() => prestamos.Count;
+
+        public int PrestamosActivos() =>
+            prestamos.Count(p => p.Estado == EstadoPrestamo.Activo);
+
+        public int PrestamosVencidos() =>
+            prestamos.Count(p => p.Estado == EstadoPrestamo.Vencido);
+
+        public int PrestamosDevueltos() =>
+            prestamos.Count(p => p.Estado == EstadoPrestamo.Devuelto);
+
+        public double PromedioDiasPrestamo()
+        {
+            if (!prestamos.Any()) return 0;
+            return prestamos.Average(p => p.DiasTranscurridos());
+        }
+
+        public void MostrarKPIs()
+        {
+            Console.WriteLine("\n========== KPIs PRÉSTAMOS ==========");
+            Console.WriteLine($"Total préstamos:    {TotalPrestamos()}");
+            Console.WriteLine($"Activos:            {PrestamosActivos()}");
+            Console.WriteLine($"Vencidos:           {PrestamosVencidos()}");
+            Console.WriteLine($"Devueltos:          {PrestamosDevueltos()}");
+            Console.WriteLine($"Promedio días:      {PromedioDiasPrestamo():F1} días");
+            Console.WriteLine("=====================================");
+        }
     }
 }
