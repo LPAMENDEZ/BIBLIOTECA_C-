@@ -82,6 +82,29 @@ libroService.OrdenarPorAnio()
 
 libroService.MostrarKPIs();
 // Punto de entrada
+
+// ── USUARIOS ──────────────────────────────
+Console.WriteLine("\n========== USUARIOS ==========");
+usuarioService.AgregarUsuario(new Usuario(1, "Ana Torres",   "CC-001", "ana@email.com"));
+usuarioService.AgregarUsuario(new Usuario(2, "Carlos López", "CC-002", "carlos@email.com"));
+usuarioService.AgregarUsuario(new Usuario(3, "María Gómez",  "CC-003", "maria@email.com"));
+usuarioService.AgregarUsuario(new Usuario(4, "Juan Pérez",   "CC-004", "juan@email.com"));
+
+usuarioService.BuscarPorId(2).Activo = false;
+
+Console.WriteLine("\nBúsqueda por documento 'CC-003':");
+Usuario u = usuarioService.BuscarPorDocumento("CC-003");
+Console.WriteLine($"  {u?.DetalleCompleto()}");
+
+Console.WriteLine("\nBúsqueda por nombre 'an':");
+usuarioService.BuscarPorNombre("an")
+    .ForEach(u => Console.WriteLine($"  {u.ResumenCorto()}"));
+
+Console.WriteLine("\nOrdenados por nombre:");
+usuarioService.OrdenarPorNombre()
+    .ForEach(u => Console.WriteLine($"  {u.ResumenCorto()}"));
+
+usuarioService.MostrarKPIs();
 ShowMainMenu();
 
 // ================================
