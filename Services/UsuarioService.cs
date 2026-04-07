@@ -30,5 +30,19 @@ namespace BibliotecaEscolarApp.Services
         }
 
         public List<Usuario> ObtenerTodos() => usuarios;
+        // ── BÚSQUEDAS ─────────────────────────────────────
+        public Usuario BuscarPorId(int id) =>
+            usuarios.FirstOrDefault(u => u.Id == id);
+
+        public Usuario BuscarPorDocumento(string documento) =>
+            usuarios.FirstOrDefault(u => u.Documento == documento);
+
+        public List<Usuario> BuscarPorNombre(string nombre) =>
+            usuarios.Where(u => u.Nombre.Contains(nombre,
+                StringComparison.OrdinalIgnoreCase)).ToList();
+
+        // ── ORDENACIÓN ────────────────────────────────────
+        public List<Usuario> OrdenarPorNombre() =>
+            usuarios.OrderBy(u => u.Nombre).ToList();
     }
 }
