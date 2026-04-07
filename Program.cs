@@ -105,6 +105,31 @@ usuarioService.OrdenarPorNombre()
     .ForEach(u => Console.WriteLine($"  {u.ResumenCorto()}"));
 
 usuarioService.MostrarKPIs();
+
+// ── PRÉSTAMOS ─────────────────────────────
+Console.WriteLine("\n========== PRÉSTAMOS ==========");
+prestamoService.AgregarPrestamo(new Prestamo(1, 2, 1, DateTime.Now.AddDays(5)));
+prestamoService.AgregarPrestamo(new Prestamo(2, 4, 3, DateTime.Now.AddDays(-3)));
+prestamoService.AgregarPrestamo(new Prestamo(3, 1, 2, DateTime.Now.AddDays(10)));
+
+prestamoService.BuscarPorId(2).Estado          = EstadoPrestamo.Vencido;
+prestamoService.BuscarPorId(3).Estado          = EstadoPrestamo.Devuelto;
+prestamoService.BuscarPorId(3).FechaDevolucion = DateTime.Now.AddDays(-1);
+
+Console.WriteLine("\nPréstamos activos:");
+prestamoService.BuscarPorEstado(EstadoPrestamo.Activo)
+    .ForEach(p => Console.WriteLine($"  {p.ResumenCorto()}"));
+
+Console.WriteLine("\nPréstamos del usuario ID 1:");
+prestamoService.BuscarPorUsuario(1)
+    .ForEach(p => Console.WriteLine($"  {p.ResumenCorto()}"));
+
+Console.WriteLine("\nOrdenados por fecha límite:");
+prestamoService.OrdenarPorFechaLimite()
+    .ForEach(p => Console.WriteLine(
+        $"  {p.ResumenCorto()} - Límite: {p.FechaLimite:yyyy-MM-dd}"));
+
+prestamoService.MostrarKPIs();
 ShowMainMenu();
 
 // ================================
