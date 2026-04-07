@@ -9,6 +9,7 @@ namespace BibliotecaEscolarApp.Services
     {
         private List<Libro> libros = new List<Libro>();
 
+        // ── MÉTODOS BÁSICOS ─────────────────────────────
         public void AgregarLibro(Libro libro)
         {
             libros.Add(libro);
@@ -18,6 +19,7 @@ namespace BibliotecaEscolarApp.Services
         public void EliminarLibro(int id)
         {
             Libro libro = libros.FirstOrDefault(l => l.Id == id);
+
             if (libro != null)
             {
                 libros.Remove(libro);
@@ -31,8 +33,7 @@ namespace BibliotecaEscolarApp.Services
 
         public List<Libro> ObtenerTodos() => libros;
 
-
-      // ── BÚSQUEDAS ─────────────────────────────────────
+        // ── BÚSQUEDAS ───────────────────────────────────
         public Libro BuscarPorId(int id) =>
             libros.FirstOrDefault(l => l.Id == id);
 
@@ -40,22 +41,36 @@ namespace BibliotecaEscolarApp.Services
             libros.FirstOrDefault(l => l.ISBN == isbn);
 
         public List<Libro> BuscarPorTitulo(string titulo) =>
-            libros.Where(l => l.Titulo.Contains(titulo,
-                StringComparison.OrdinalIgnoreCase)).ToList();
+            libros.Where(l => l.Titulo != null &&
+                l.Titulo.Contains(titulo, StringComparison.OrdinalIgnoreCase)).ToList();
 
         public List<Libro> BuscarPorAutor(string autor) =>
-            libros.Where(l => l.Autor.Contains(autor,
-                StringComparison.OrdinalIgnoreCase)).ToList();
+            libros.Where(l => l.Autor != null &&
+                l.Autor.Contains(autor, StringComparison.OrdinalIgnoreCase)).ToList();
 
-        // ── ORDENACIÓN ────────────────────────────────────
+        // ── ORDENACIÓN ──────────────────────────────────
         public List<Libro> OrdenarPorTitulo() =>
             libros.OrderBy(l => l.Titulo).ToList();
 
         public List<Libro> OrdenarPorAnio() =>
-            libros.OrderBy(l => l.Anio).ToList();  
+            libros.OrderBy(l => l.Anio).ToList();
+
+        // ── KPIs ────────────────────────────────────────
+        public int TotalLibros() => libros.Count;
+
+        public int LibrosDisponibles() =>
+            libros.Count(l => l.Disponible == true);
+
+        public int LibrosPrestados() =>
+            libros.Count(l => l.Disponible == false);
+
+        public void MostrarKPIs()
+        {
+            Console.WriteLine("\n========== KPIs LIBROS ==========");
+            Console.WriteLine($"Total de libros:    {TotalLibros()}");
+            Console.WriteLine($"Disponibles:        {LibrosDisponibles()}");
+            Console.WriteLine($"Prestados:          {LibrosPrestados()}");
+            Console.WriteLine("==================================");
+        }
     }
-    
-
-
-
 }
