@@ -1,4 +1,5 @@
 ﻿using BibliotecaEscolarApp.Models;
+using BibliotecaEscolarApp.Services;
 
 // ================================
 // COMPARACIÓN ARRAY vs LIST
@@ -44,6 +45,42 @@ Usuario usuario1   = new Usuario(1, "Juan Perez", "123456789", "juan@email.com")
 Usuario usuario2   = new Usuario(2, "Maria Lopez", "987654321", "maria@email.com");
 Prestamo prestamo1 = new Prestamo(1, 1, 1, DateTime.Now.AddDays(7));
 
+
+// ══════════════════════════════════════════
+// INSTANCIAR SERVICIOS
+// ══════════════════════════════════════════
+LibroService    libroService    = new LibroService();
+UsuarioService  usuarioService  = new UsuarioService();
+PrestamoService prestamoService = new PrestamoService();
+
+// ── LIBROS ────────────────────────────────
+Console.WriteLine("\n========== LIBROS ==========");
+libroService.AgregarLibro(new Libro(1, "Cien años de soledad", "García Márquez", 1967, "Novela",   "ISBN-001"));
+libroService.AgregarLibro(new Libro(2, "El Quijote",           "Cervantes",      1605, "Clásico",  "ISBN-002"));
+libroService.AgregarLibro(new Libro(3, "La Odisea",            "Homero",        -800,  "Épica",    "ISBN-003"));
+libroService.AgregarLibro(new Libro(4, "Harry Potter",         "Rowling",        1997, "Fantasía", "ISBN-004"));
+libroService.AgregarLibro(new Libro(5, "El Principito",        "Saint-Exupéry", 1943,  "Infantil", "ISBN-005"));
+
+libroService.BuscarPorId(2).Disponible = false;
+libroService.BuscarPorId(4).Disponible = false;
+
+Console.WriteLine("\nBúsqueda por autor 'Homero':");
+libroService.BuscarPorAutor("Homero")
+    .ForEach(l => Console.WriteLine($"  {l.ResumenCorto()}"));
+
+Console.WriteLine("\nBúsqueda por título 'el':");
+libroService.BuscarPorTitulo("el")
+    .ForEach(l => Console.WriteLine($"  {l.ResumenCorto()}"));
+
+Console.WriteLine("\nOrdenados por título:");
+libroService.OrdenarPorTitulo()
+    .ForEach(l => Console.WriteLine($"  {l.ResumenCorto()}"));
+
+Console.WriteLine("\nOrdenados por año:");
+libroService.OrdenarPorAnio()
+    .ForEach(l => Console.WriteLine($"  {l.ResumenCorto()}"));
+
+libroService.MostrarKPIs();
 // Punto de entrada
 ShowMainMenu();
 
@@ -74,6 +111,8 @@ void ShowMainMenu()
         if (opcion == 6) ConfirmExitAndSave();
     }
 }
+
+
 
 // ================================
 // VALIDAR OPCIÓN
