@@ -30,5 +30,25 @@ namespace BibliotecaEscolarApp.Services
         }
 
         public List<Prestamo> ObtenerTodos() => prestamos;
+
+        // ── BÚSQUEDAS ─────────────────────────────────────
+        public Prestamo BuscarPorId(int id) =>
+            prestamos.FirstOrDefault(p => p.Id == id);
+
+        public List<Prestamo> BuscarPorEstado(EstadoPrestamo estado) =>
+            prestamos.Where(p => p.Estado == estado).ToList();
+
+        public List<Prestamo> BuscarPorUsuario(int usuarioId) =>
+            prestamos.Where(p => p.UsuarioId == usuarioId).ToList();
+
+        public List<Prestamo> BuscarPorLibro(int libroId) =>
+            prestamos.Where(p => p.LibroId == libroId).ToList();
+
+        // ── ORDENACIÓN ────────────────────────────────────
+        public List<Prestamo> OrdenarPorFechaLimite() =>
+            prestamos.OrderBy(p => p.FechaLimite).ToList();
+
+        public List<Prestamo> OrdenarPorFechaPrestamo() =>
+            prestamos.OrderBy(p => p.FechaPrestamo).ToList();
     }
 }
