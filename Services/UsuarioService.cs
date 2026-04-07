@@ -44,5 +44,23 @@ namespace BibliotecaEscolarApp.Services
         // ── ORDENACIÓN ────────────────────────────────────
         public List<Usuario> OrdenarPorNombre() =>
             usuarios.OrderBy(u => u.Nombre).ToList();
+
+            // ── KPIs ──────────────────────────────────────────
+        public int TotalUsuarios() => usuarios.Count;
+
+        public int UsuariosActivos() =>
+            usuarios.Count(u => u.Activo == true);
+
+        public int UsuariosInactivos() =>
+            usuarios.Count(u => u.Activo == false);
+
+        public void MostrarKPIs()
+        {
+            Console.WriteLine("\n========== KPIs USUARIOS ==========");
+            Console.WriteLine($"Total de usuarios:  {TotalUsuarios()}");
+            Console.WriteLine($"Activos:            {UsuariosActivos()}");
+            Console.WriteLine($"Inactivos:          {UsuariosInactivos()}");
+            Console.WriteLine("====================================");
+        }
     }
 }
