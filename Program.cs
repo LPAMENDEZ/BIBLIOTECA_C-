@@ -1,6 +1,41 @@
 ﻿using BibliotecaEscolarApp.Models;
 
 // ================================
+// COMPARACIÓN ARRAY vs LIST
+// ================================
+Console.WriteLine("========== ARRAY vs LIST ==========\n");
+
+// CON ARRAY — tamaño fijo
+string[] titulosArray = new string[3];
+titulosArray[0] = "Cien años de soledad";
+titulosArray[1] = "El Quijote";
+titulosArray[2] = "La Odisea";
+
+Console.WriteLine("Con ARRAY (tamaño fijo = 3):");
+foreach (string t in titulosArray)
+    Console.WriteLine($"  - {t}");
+
+// CON LIST — tamaño dinámico
+List<string> titulosList = new List<string>();
+titulosList.Add("Cien años de soledad");
+titulosList.Add("El Quijote");
+titulosList.Add("La Odisea");
+titulosList.Add("Harry Potter");   // se puede agregar sin límite
+titulosList.Remove("El Quijote");  // se puede eliminar fácilmente
+
+Console.WriteLine("\nCon LIST (tamaño dinámico):");
+foreach (string t in titulosList)
+    Console.WriteLine($"  - {t}");
+
+Console.WriteLine("\nDiferencia clave:");
+Console.WriteLine("  ARRAY → tamaño FIJO, no puede crecer ni reducirse.");
+Console.WriteLine("  LIST  → tamaño DINÁMICO, crece y decrece libremente.");
+
+Console.WriteLine("\nPresione Enter para continuar al sistema...");
+Console.ReadLine();
+Console.Clear();
+
+// ================================
 // OBJETOS DE PRUEBA
 // ================================
 Libro libro1       = new Libro(1, "Cien años de soledad", "Gabriel Garcia Marquez", 1967, "Novela", "978-0-06-088328-7");
